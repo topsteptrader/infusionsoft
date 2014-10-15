@@ -249,6 +249,21 @@ module Infusionsoft
       def invoice_get_invoice_id(order_id)
         response = get('InvoiceService.getinvoice_id', order_id)
       end
+      
+      def invoice_delete_invoice(invoice_id)
+        response = get('InvoiceService.deleteInvoice', invoice_id)
+      end
+      
+      def invoice_get_invoice(invoice_id)
+        response = Infusionsoft.data_query("Invoice",1,0,{"Id" => invoice_id},[
+          "AffiliateId", "ContactId", "CreditStatus", "DateCreated", "Description",
+          "Id", "InvoiceTotal", "InvoiceType", "JobId", "LeadAffiliateId", "PayPlanStatus",
+          "PayStatus", "ProductSold", "PromoCode", "RefundStatus", "Synced", "TotalDue",
+          "TotalPaid"
+        ])
+        response.any? ? response.first : nil
+      end
+      
     end
   end
 end

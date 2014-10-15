@@ -16,6 +16,10 @@ module Infusionsoft
     require 'infusionsoft/client/search'
     require 'infusionsoft/client/credit_card'
     require 'infusionsoft/client/funnel'
+    require 'infusionsoft/client/product'
+    require 'infusionsoft/client/discount'
+    require 'infusionsoft/client/order'
+    require 'infusionsoft/client/order_item'
 
     include Infusionsoft::Client::Contact
     include Infusionsoft::Client::Email
@@ -27,5 +31,9 @@ module Infusionsoft
     include Infusionsoft::Client::Search
     include Infusionsoft::Client::CreditCard
     include Infusionsoft::Client::Funnel
+    include Infusionsoft::Client::Product
+    include Infusionsoft::Client::Discount
+    include Infusionsoft::Client::Order
+    include Infusionsoft::Client::OrderItem
   end
 end
